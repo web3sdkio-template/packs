@@ -1,6 +1,6 @@
 # Packs Example
 
-In this example, we use [packs](https://portal.web3sdk.io/pre-built-contracts/pack) to create loot boxes that can contain any amount of:
+In this example, we use [packs](https://docs.web3sdk.io/pre-built-contracts/pack) to create loot boxes that can contain any amount of:
 
 - ERC-721 NFTs
 - ERC-1155 NFTs
@@ -10,10 +10,10 @@ We can open these loot boxes to reveal the tokens inside!
 
 ## Tools
 
-- [**Pack contract**](https://portal.web3sdk.io/pre-built-contracts/pack): To create openable loot boxes that contain NFTs from our Edition and Token contracts.
-- [**Edition contract**](https://portal.web3sdk.io/pre-built-contracts/edition): To create NFTs with multiple copies and bundle them into the packs.
-- [**Token contract**](https://portal.web3sdk.io/pre-built-contracts/token): To create our own token that we can bundle into the packs.
-- [**React SDK**](https://docs.web3sdk.io/react): to enable users to connect their wallets with the [useMetamask](https://portal.web3sdk.io/react/react.usemetamask) hook, and access hooks such as [usePack](https://portal.web3sdk.io/react/react.usePack) to interact with the Pack contract.
+- [**Pack contract**](https://docs.web3sdk.io/pre-built-contracts/pack): To create openable loot boxes that contain NFTs from our Edition and Token contracts.
+- [**Edition contract**](https://docs.web3sdk.io/pre-built-contracts/edition): To create NFTs with multiple copies and bundle them into the packs.
+- [**Token contract**](https://docs.web3sdk.io/pre-built-contracts/token): To create our own token that we can bundle into the packs.
+- [**React SDK**](https://docs.web3sdk.io/react): to enable users to connect their wallets with the [useMetamask](https://docs.web3sdk.io/react/react.usemetamask) hook, and access hooks such as [usePack](https://docs.web3sdk.io/react/react.usePack) to interact with the Pack contract.
 - [**TypeScript SDK**](https://docs.web3sdk.io/typescript): To write [scripts](./scripts) that create and deploy our pack contract, and bundle the tokens into the packs.
 
 ## Using This Repo
@@ -30,7 +30,7 @@ npx web3sdkio create --template packs
 
 ### 2. Deploy some contracts!
 
-This example project uses a [Token](https://portal.web3sdk.io/pre-built-contracts/token), [Edition](https://portal.web3sdk.io/pre-built-contracts/edition), and [Pack](https://portal.web3sdk.io/pre-built-contracts/pack) contract.
+This example project uses a [Token](https://docs.web3sdk.io/pre-built-contracts/token), [Edition](https://docs.web3sdk.io/pre-built-contracts/edition), and [Pack](https://docs.web3sdk.io/pre-built-contracts/pack) contract.
 
 You can deploy all of these contracts via the [web3sdkio dashboard](https://web3sdk.io/dashboard)
 
@@ -89,7 +89,7 @@ We wrap our application in the `Web3sdkioProvider` in the [\_app.tsx](./pages/_a
 </Web3sdkioProvider>
 ```
 
-Now in the [index.tsx](./pages/index.tsx) file, we can use the [useMetamask](https://portal.web3sdk.io/react/react.usemetamask) hook to connect to the user's wallet:
+Now in the [index.tsx](./pages/index.tsx) file, we can use the [useMetamask](https://docs.web3sdk.io/react/react.usemetamask) hook to connect to the user's wallet:
 
 ```jsx
 const address = useAddress();
@@ -99,7 +99,7 @@ const disconnectWallet = useDisconnect();
 
 ### Connecting to our Pack Contract
 
-We use the [usePack](https://portal.web3sdk.io/react/react.usepack) hook to connect to the pack contract using it's contract address:
+We use the [usePack](https://docs.web3sdk.io/react/react.usepack) hook to connect to the pack contract using it's contract address:
 
 ```jsx
 const pack = usePack("0x0Aee160411473f63be2DfF2865E81A1D59636C97");
@@ -107,7 +107,7 @@ const pack = usePack("0x0Aee160411473f63be2DfF2865E81A1D59636C97");
 
 ### Viewing Packs Owned by the Connected Wallet
 
-Since each pack is an ERC-1155 NFT itself, we can use the [useOwnedNFTs](https://portal.web3sdk.io/react/react.useownednfts) hook to view the packs (and quantity) that the user owns:
+Since each pack is an ERC-1155 NFT itself, we can use the [useOwnedNFTs](https://docs.web3sdk.io/react/react.useownednfts) hook to view the packs (and quantity) that the user owns:
 
 ```jsx
 const { data: nfts, isLoading } = useOwnedNFTs(pack, address);
@@ -127,8 +127,8 @@ const openedRewards = await pack?.open(0, 1); // 0 = tokenId, 1 = quantity
 
 We then use the values returned in this `openedRewards` object to display the tokens that the user opened.
 
-Since the `openedRewards` object returns the `contractAddress` and `tokenId`, we use the [useNFT](https://portal.web3sdk.io/react/react.usenft) or the
-[useMetadata](https://portal.web3sdk.io/react/react.usemetadata) hook (for ERC-20 tokens) to get the metadata of the tokens that were opened:
+Since the `openedRewards` object returns the `contractAddress` and `tokenId`, we use the [useNFT](https://docs.web3sdk.io/react/react.usenft) or the
+[useMetadata](https://docs.web3sdk.io/react/react.usemetadata) hook (for ERC-20 tokens) to get the metadata of the tokens that were opened:
 
 ```jsx
 // For ERC-1155 / ERC-721 tokens:
@@ -144,4 +144,4 @@ Then we again `map` over the rewards arrays contained in the `openedRewards` obj
 
 ## Join our Discord!
 
-For any questions, suggestions, join our discord at [https://discord.gg/web3sdkio](https://discord.gg/web3sdkio).
+For any questions, suggestions, join our discord at [https://discord.gg/n33UhsfUKB](https://discord.gg/n33UhsfUKB).
